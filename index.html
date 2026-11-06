@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal website of Salma Sbai.">
+  <title>Salma Sbai | Personal Website</title>
+  <style>
+    :root {
+      --blue: #174a78;
+      --blue-dark: #103553;
+      --blue-pale: #edf4fa;
+      --orange: #ef8b35;
+      --ink: #243342;
+      --muted: #607080;
+      --paper: #ffffff;
+      --line: #dce5ed;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #f7f9fb;
+      color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--blue); }
+    a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    .site-header {
+      background: var(--blue-dark);
+      color: white;
+      padding: 18px 6vw;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .brand { color: white; font-weight: 750; text-decoration: none; letter-spacing: .02em; }
+    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .nav-links a { color: white; text-decoration: none; font-size: .94rem; }
+    .nav-links a:hover { color: #ffd2a7; }
+    main { max-width: 1100px; margin: auto; padding: 42px 6vw 72px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(220px, .8fr);
+      align-items: center;
+      gap: 42px;
+      padding: 42px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(16, 53, 83, .06);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--orange);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h1 { color: var(--blue-dark); font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.08; margin: 0 0 16px; }
+    h2 { color: var(--blue); font-size: 1.75rem; line-height: 1.2; margin: 0 0 22px; }
+    h3 { color: var(--blue-dark); font-size: 1.12rem; margin: 0; }
+    p { margin: 0 0 12px; }
+    .intro { max-width: 620px; color: var(--muted); font-size: 1.08rem; }
+    .profile-frame {
+      width: min(100%, 300px);
+      aspect-ratio: 4 / 5;
+      justify-self: end;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--blue-pale);
+      border: 5px solid white;
+      outline: 1px solid var(--line);
+    }
+    .profile-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .section {
+      margin-top: 28px;
+      padding: 36px 40px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+    .section-heading { display: flex; align-items: center; gap: 12px; }
+    .section-heading::before { content: ""; width: 7px; height: 29px; border-radius: 8px; background: var(--orange); }
+    .entry { padding: 0 0 22px 20px; margin: 0 0 22px; border-left: 2px solid var(--line); }
+    .entry:last-child { margin-bottom: 0; padding-bottom: 0; }
+    .entry-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .date { color: var(--orange); font-size: .92rem; font-weight: 700; }
+    .organization { color: var(--muted); margin: 3px 0 8px; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { padding: 2px 0; }
+    .education-meta { color: var(--muted); }
+    .coursework { color: var(--muted); }
+    .language-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .language {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--blue-pale);
+      color: var(--blue-dark);
+      border: 1px solid #d7e5f1;
+    }
+    .chart-wrap {
+      padding: 14px;
+      background: var(--blue-pale);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .chart-wrap img { max-width: 100%; height: auto; display: block; margin: auto; }
+    .small-note { color: var(--muted); font-size: .9rem; margin-top: 10px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .contact-links a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .placeholder { color: var(--muted); font-style: italic; }
+    footer { text-align: center; color: var(--muted); padding: 28px 6vw 36px; font-size: .9rem; }
+    @media (max-width: 700px) {
+      main { padding: 24px 5vw 48px; }
+      .hero { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+      .profile-frame { justify-self: start; width: min(100%, 240px); }
+      .section { padding: 28px 24px; }
+      .entry-top { display: block; }
+      .date { display: block; margin-top: 3px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top">Salma Sbai</a>
+      <div class="nav-links">
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#languages">Languages</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- structure.txt was not included with the supplied files.
+         This page uses the CV's section order until that structure is provided. -->
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Personal website</p>
+        <h1 id="page-title">Salma Sbai</h1>
+        <p class="intro">[PLACEHOLDER: A personal introduction was not included in bio.txt.]</p>
+      </div>
+      <div class="profile-frame">
+        <img src="profile.jpg" alt="Profile photo of Salma Sbai">
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="structure-note">
+      <h2 id="structure-note" class="section-heading">Page structure</h2>
+      <p class="placeholder">[PLACEHOLDER: structure.txt was not provided. The sections below follow the order used in the supplied CV; replace or reorder them to match structure.txt.]</p>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+      <h2 id="education-title" class="section-heading">Education</h2>
+      <div class="entry">
+        <div class="entry-top">
+          <h3>New York University</h3>
+          <span class="date">Expected Graduation: May 2026</span>
+        </div>
+        <p class="organization">New York, NY</p>
+        <p>Bachelor of Science: Applied Psychology</p>
+        <ul>
+          <li>Studied abroad at NYU Madrid (Fall 2024)</li>
+        </ul>
+        <p class="coursework"><strong>Relevant courses:</strong> Developmental Psychology; Statistics for the Behavioral Sciences; Research Methods I &amp; II; Social Psychology; The Counseling Interview; Trauma in Childhood &amp; Adolescence; The Cultures of Psychology; Seminar in Applied Psychology: Theory, Research, and Practice I &amp; II.</p>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title" class="section-heading">Experience</h2>
+      <div class="entry">
+        <div class="entry-top"><h3>Program Planning Intern</h3><span class="date">Fall 2025 – Present</span></div>
+        <p class="organization">The Horticultural Society of New York</p>
+        <ul>
+          <li>Help plan and coordinate programs, events, and workshops.</li>
+          <li>Support day-of execution, including check-ins, materials, and troubleshooting.</li>
+          <li>Assist in evaluating community or participant needs.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-top"><h3>Marketing &amp; Partnerships Associate</h3><span class="date">Summer 2025</span></div>
+        <p class="organization">Savannah.ai · New York, NY</p>
+        <ul>
+          <li>Developed and executed multi-channel marketing campaigns, including email and social media, to drive brand awareness and engagement.</li>
+          <li>Conducted market research and competitive analysis.</li>
+          <li>Researched new partnership opportunities aligned with company goals and target audience.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-top"><h3>Project Management Intern</h3><span class="date">Spring 2020</span></div>
+        <p class="organization">Flash Entertainment · Abu Dhabi, UAE</p>
+        <ul>
+          <li>Supported 5+ staff members in managing phone calls and other daily tasks.</li>
+          <li>Participated in workshops and presentations related to projects.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="leadership" aria-labelledby="leadership-title">
+      <h2 id="leadership-title" class="section-heading">Leadership and Activities</h2>
+      <div class="entry">
+        <div class="entry-top"><h3>Producer Assistant</h3><span class="date">Spring 2024</span></div>
+        <p class="organization">Tisch Student Film · New York University, NY</p>
+        <ul>
+          <li>Ran on-set errands.</li>
+          <li>Assisted actors during filming.</li>
+          <li>Managed and coordinated schedules.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-top"><h3>Co-Founder</h3><span class="date">Fall 2020 – 2024</span></div>
+        <p class="organization">Mental Health Club · Abu Dhabi, UAE</p>
+        <ul>
+          <li>Planned and presented informational meetings with members.</li>
+          <li>Organized events to raise money for local organizations.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-top"><h3>STEM After School Recreation Program Leader</h3><span class="date">Fall 2021 – Spring 2022</span></div>
+        <p class="organization">ACS Elementary School · Abu Dhabi, UAE</p>
+        <ul>
+          <li>Organized and led activities related to science topics for KG-1 to 1st grade students.</li>
+          <li>Set up classroom materials and assisted students throughout respective tasks.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-top"><h3>Teacher’s Assistant</h3><span class="date">Fall 2020</span></div>
+        <p class="organization">ACS Elementary School · Abu Dhabi, UAE</p>
+        <ul>
+          <li>Supported student learning objectives through personalized and small group assistance.</li>
+          <li>Collaborated with teachers for lesson preparation by preparing materials and setting up equipment.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-top"><h3>Volunteer</h3><span class="date">Fall 2022</span></div>
+        <p class="organization">Camps International · Tsavo Coast, Kenya</p>
+        <ul><li>Completed 20 hours of service work.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-top"><h3>Volunteer</h3><span class="date">Fall 2018</span></div>
+        <p class="organization">Rustic Pathways · Udon Thani, Thailand</p>
+        <ul><li>Completed 20 hours of service work.</li></ul>
+      </div>
+    </section>
+
+    <section class="section" id="languages" aria-labelledby="languages-title">
+      <h2 id="languages-title" class="section-heading">Languages</h2>
+      <p><strong>Fluent</strong></p>
+      <div class="language-list">
+        <span class="language">English</span><span class="language">French</span><span class="language">Arabic</span>
+      </div>
+      <p style="margin-top:18px"><strong>Elementary</strong></p>
+      <div class="language-list"><span class="language">Spanish</span></div>
+    </section>
+
+    <section class="section" aria-labelledby="chart-title">
+      <h2 id="chart-title" class="section-heading">Chart</h2>
+      <div class="chart-wrap">
+        <img src="images/chart1.png" alt="Chart supplied by Salma Sbai">
+      </div>
+      <p class="small-note">[PLACEHOLDER: Add images/chart1.png in an images folder beside this file.]</p>
+    </section>
+
+    <section class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-heading">Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:salmaiasbai@gmail.com">salmaiasbai@gmail.com</a>
+        <a href="https://www.linkedin.com/in/salma-sbai/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Salma Sbai</footer>
+</body>
+</html>
